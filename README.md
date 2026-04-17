@@ -7,15 +7,11 @@ WindowsGSM plugin for hosting a **Windrose Dedicated Server**.
 - Install and update Windrose Dedicated Server through SteamCMD
 - Launch the real Windrose server binary directly
 - Read standard server settings from WindowsGSM
-- Update `ServerDescription.json` before startup
+- Update supported values in `ServerDescription.json` before startup
 - Apply:
   - Server name
   - Max player count
-  - Password enabled / disabled
-  - Password
   - P2P proxy address from the WindowsGSM Server IP field
-  - World ID selection
-  - Invite code
 - Detect available worlds from `WorldDescription.json`
 - Show invite code and detected worlds in the WindowsGSM notice log
 - Embedded console support
@@ -45,21 +41,15 @@ The plugin uses the normal WindowsGSM server edit fields for:
 
 These are applied when the server is started.
 
-## Windrose-specific behavior
+## ServerDescription.json support
 
-The plugin updates values inside `ServerDescription.json`, including:
+The plugin currently updates the following values from WindowsGSM before server start:
 
 - `ServerName`
 - `MaxPlayerCount`
-- `IsPasswordProtected`
-- `Password`
-- `InviteCode`
-- `WorldIslandId`
 - `P2pProxyAddress`
 
-It also scans the Windrose worlds directory and logs detected worlds in the format:
+It also reads and displays:
 
-```text
-Invite Code: xxxxxxxx
-Detected Windrose worlds:
-- WORLDID | WorldName | Preset
+- `InviteCode`
+- detected worlds from `WorldDescription.json`
